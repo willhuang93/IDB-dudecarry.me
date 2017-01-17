@@ -1,0 +1,94 @@
+{% raw %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>XRedxDragonX - League of Legends</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+     <!-- AngularJS -->
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+     <!-- Javascript -->
+     <script src="/lol.js"></script>
+     <!-- CSS -->
+     <link rel="stylesheet" type="text/css" href="/lol.css">
+     <!-- Tab Icon -->
+     <link rel="icon" href="http://4.bp.blogspot.com/Uwa2YriGCMHzubajdAjv9kMeWru9FEGv8Mp02bOTQjfHwaZ-gCcfacuXD7NoxwOc_jQ=w300">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">League of Legends</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hof-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="hof-nav">
+                <ul class="nav navbar-nav">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/champions">Champions</a></li>
+                    <li><a href="/teams">Teams</a></li>
+                    <li><a href="/summoners">Summoners</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+      
+    <div class="container body-content" ng-app="lol_app" ng-controller="lol_controller">
+      {% endraw %}
+      <div ng-init="request_summoner({{id}})"></div>
+      {% raw %}
+      <img src="{{summoner.icon_url}}" class="icon col-md-6"/>
+      <div class="top-text">
+        <h1>{{summoner.name}}</h1>
+        <hr>
+      </div>
+      <div class="well col-md-6">
+        <h3>ID</h3>
+        <p>{{summoner.id}}</p>
+        <div class = "well">
+          <h3>Rank</h3>
+          <hr></hr>
+          <h4>Tier</h4>
+          <p>{{summoner.tier}}</p>
+          <h4>Division</h4>
+          <p>{{summoner.division}}</p>
+          <h4>League Points</h4>
+          <p>{{summoner.lp}}</p>
+        </div>
+        <div class="well">
+          <h3>Teams</h3>
+          <hr></hr>
+          <div ng-repeat="team in summoner.teams">
+            <p><a href="/team/{{team.id}}">{{team.tag}}</a></p>
+          </div>
+        </div>
+        <div class="well">
+          <h3>Top 3 Champions</h3>
+          <hr></hr>
+          <div ng-repeat="champ in summoner.top_3_champs">
+            <p><a href="/champion/{{champ.id}}">{{champ.name}}</a></p>
+          </div>
+        </div>
+        <h3>Win Percentage</h3>
+        <p>{{summoner.win_percentage}}</p>
+        <h3>Total Games</h3>
+        <p>{{summoner.total_games}}</p>
+      </div>
+    </div>
+
+  </body>
+</html>
+{% endraw %}

@@ -1,0 +1,135 @@
+{% raw %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Teams - League of Legends</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+     <!-- AngularJS -->
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+     <!-- Javascript -->
+     <script src="/lol.js"></script>
+     <!-- CSS -->
+     <link rel="stylesheet" type="text/css" href="/lol.css">
+     <!-- Tab Icon -->
+     <link rel="icon" href="http://4.bp.blogspot.com/Uwa2YriGCMHzubajdAjv9kMeWru9FEGv8Mp02bOTQjfHwaZ-gCcfacuXD7NoxwOc_jQ=w300">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">League of Legends</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hof-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="hof-nav">
+                <ul class="nav navbar-nav">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/champions">Champions</a></li>
+                    <li><a href="/teams">Teams</a></li>
+                    <li><a href="/summoners">Summoners</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container body-content top-text">
+  <h1>Teams</h1>
+  <p>These are the popular teams formed to play matches.</p>
+  <hr>
+</div>
+
+<div class="container" ng-app="lol_app" ng-controller="lol_controller">
+  <div ng-init="request_teams()"></div>
+  <!-- Search Form -->
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control" placeholder="Enter a thing." ng-model="teams_search">
+      </div>
+    </div>
+  </form>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <td>
+            <a href="#" ng-click="teams_sortReverse = sortOrder(teams_sortType, 'name', teams_sortReverse); teams_sortType = 'name'">
+              Name
+              <span ng-show="teams_sortType == 'name' && !teams_sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="teams_sortType == 'name' && teams_sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="teams_sortReverse = sortOrder(teams_sortType, 'id', teams_sortReverse); teams_sortType = 'id'">
+              ID
+              <span ng-show="teams_sortType == 'id' && !teams_sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="teams_sortType == 'id' && teams_sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="teams_sortReverse = sortOrder(teams_sortType, 'tag', teams_sortReverse); teams_sortType = 'tag'">
+              Tag
+              <span ng-show="teams_sortType == 'tag' && !teams_sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="teams_sortType == 'tag' && teams_sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="teams_sortReverse = sortOrder(teams_sortType, 'status', teams_sortReverse); teams_sortType = 'status'">
+              Status
+              <span ng-show="teams_sortType == 'status' && !teams_sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="teams_sortType == 'status' && teams_sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>          
+          <td>
+            <a href="#" ng-click="teams_sortReverse = sortOrder(teams_sortType, 'win_percentage', teams_sortReverse); teams_sortType = 'win_percentage'">
+              Win Percentage
+              <span ng-show="teams_sortType == 'win_percentage' && !teams_sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="teams_sortType == 'win_percentage' && teams_sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="teams_sortReverse = sortOrder(teams_sortType, 'total_games', teams_sortReverse); teams_sortType = 'total_games'">
+              Total Games
+              <span ng-show="teams_sortType == 'total_games' && !teams_sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="teams_sortType == 'total_games' && teams_sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>                                 
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="team in teams | orderBy:teams_sortType:teams_sortReverse | filter:teams_search">
+          <td><a href="/team/{{team.id}}">{{ team.name }}</a></td>
+          <td>{{ team.id }}</td>
+          <td>{{ team.tag }}</td>
+          <td>{{ team.status }}</td>
+          <td>{{ team.win_percentage }}</td>
+          <td>{{ team.total_games }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+</div>
+
+</body>
+</html>
+{% endraw %}

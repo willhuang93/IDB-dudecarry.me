@@ -1,0 +1,313 @@
+FORMAT: 1A
+HOST: http://dudecarry.me/api
+
+# dudecarry.me API
+
+dudecarry.me provides this API to lookup info about summoners, champions, and player teams, on the game
+League of Legends
+
+
+
+
+# Group Champions
+
+Champions are player controlled characters.
+
+## All Champions [/champions]
+
+Get list of all champions.
+
+### GET [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Thresh",
+                "id": 412,
+                "icon_url": "http://ddragon.leagueoflegends.com/cdn/6.5.1/img/champion/Thresh.png",
+                "title": "the Chain Warden",
+                "hp": 560.2,
+                "mp": 273.92,
+                "movespeed": 335.0,
+                "spellblock": 30.0,
+            },
+            ...
+        ]
+
+## Champion By Id [/champion/{id}]
+
+Get a single champion by their id
+
++ Parameters
+    + id (required, number) ... ID of the champion
+
+### GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "name": "Thresh",
+            "id": 412,
+            "icon_url": "http://ddragon.leagueoflegends.com/cdn/6.5.1/img/champion/Thresh.png",
+            "title": "the Chain Warden",
+            "hp": 560.2,
+            "mp": 273.92,
+            "movespeed": 335.0,
+            "spellblock": 30.0,
+        }
+
+## Champion By Name [/champion/by_name/{name}]
+
+Get a single champion by their name
+
++ Parameters
+    + name (required, string) ... Name of champion
+    
+### GET [GET]
++ Response 200 (application/json)
+
+        {
+            "name": "Thresh",
+            "id": 412,
+            "icon_url": "http://ddragon.leagueoflegends.com/cdn/6.5.1/img/champion/Thresh.png",
+            "title": "the Chain Warden",
+            "hp": 560.2,
+            "mp": 273.92,
+            "movespeed": 335.0,
+            "spellblock": 30.0,
+        }
+        
+        
+        
+        
+# Group Players
+
+Players have a pool of playable champions they can select from for each match.
+They're also able to join teams, and they can join more than one.
+
+## All Players [/players]
+
+Get list of all players.
+
+### GET [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "XRedxDragonX",
+                "id": 23509228,
+                "icon_url": "http://sk2.op.gg/images/profile_icons/profileIcon592.jpg",
+                "rank": {
+                    "tier": "DIAMOND",
+                    "division": 4,
+                    "league_points": 69
+                },
+                "teams": [
+                    "OPot",
+                ],
+                "top_3_champions": [
+                    412,
+                    45,
+                    55
+                ],
+                "win_percentage": 0.539603960396,
+                "total_games": 202,
+            }
+        ]
+
+## Player By Id [/player/{id}]
+
+Get a single player by their id
+
++ Parameters
+    + id (required, number) ... ID of the player
+
+### GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "name": "XRedxDragonX",
+            "id": 23509228,
+            "icon_url": "http://sk2.op.gg/images/profile_icons/profileIcon592.jpg",
+            "rank": {
+                "tier": "DIAMOND",
+                "division": 4,
+                "league_points": 69
+            },
+            "teams": [
+                "OPot",
+            ],
+            "top_3_champions": [
+                412,
+                45,
+                55
+            ],
+            "win_percentage": 0.539603960396,
+            "total_games": 202,
+        }
+
+## Player By Name [/player/by_name/{name}]
+
+Get a single player by their name
+
++ Parameters
+    + name (required, string) ... Name of the player
+    
+### GET [GET]
++ Response 200 (application/json)
+
+        {
+            "name": "XRedxDragonX",
+            "id": 23509228,
+            "icon_url": "http://sk2.op.gg/images/profile_icons/profileIcon592.jpg",
+            "rank": {
+                "tier": "DIAMOND",
+                "division": 4,
+                "league_points": 69
+            },
+            "teams": [
+                "OPot",
+            ],
+            "top_3_champions": [
+                412,
+                45,
+                55
+            ],
+            "win_percentage": 0.539603960396,
+            "total_games": 202,
+        }
+
+# Group Team
+
+A team consists of a few players. Players may join more than one team.
+
+## All teams [/teams]
+
+Get list of all teams.
+
+### GET [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Order of the Iron Potato",
+                "id": "TEAM-222e7b80-49d9-11e4-806c-782bcb4d0bb2",
+                "tag": "OPot",
+                "status": "RANKED",
+                "win_percentage": 0.5,
+                "total_games": 2,
+                "most_recent_member_timestamp": 1413137738000,
+                "players": [
+                    23509228,
+                    72680640
+                ]
+        },
+        ...
+        ]
+        
+## Team By ID [/team/{id}]
+
+Get a team by id.
+
++ Parameters
+    + id (required, string) ... ID of the team
+
+
+### GET [GET]
++ Response 200 (application/json)
+
+        {
+            "name": "Order of the Iron Potato",
+            "id": "TEAM-222e7b80-49d9-11e4-806c-782bcb4d0bb2",
+            "tag": "OPot",
+            "status": "RANKED",
+            "win_percentage": 0.5,
+            "total_games": 2,
+            "most_recent_member_timestamp": 1413137738000,
+            "players": [
+                23509228,
+                72680640
+            ]
+        }
+        
+## Team By Tag [/team/by_tag/{tag}]
+
+Get a team by tag.
+
++ Parameters
+    + tag (required, string) ... tag of the team
+
+
+### GET [GET]
++ Response 200 (application/json)
+
+        {
+            "name": "Order of the Iron Potato",
+            "id": "TEAM-222e7b80-49d9-11e4-806c-782bcb4d0bb2",
+            "tag": "OPot",
+            "status": "RANKED",
+            "win_percentage": 0.5,
+            "total_games": 2,
+            "most_recent_member_timestamp": 1413137738000,
+            "players": [
+                23509228,
+                72680640
+            ]
+        }
+        
+## Team By Name [/team/by_name/{name}]
+
+Get a team by name.
+
++ Parameters
+    + name (required, string) ... name of the team
+
+
+### GET [GET]
++ Response 200 (application/json)
+
+        {
+            "name": "Order of the Iron Potato",
+            "id": "TEAM-222e7b80-49d9-11e4-806c-782bcb4d0bb2",
+            "tag": "OPot",
+            "status": "RANKED",
+            "win_percentage": 0.5,
+            "total_games": 2,
+            "most_recent_member_timestamp": 1413137738000,
+            "players": [
+                23509228,
+                72680640
+            ]
+        }
+
+# Group Searching
+
+## Sitewide Search [/search/{query}?type={type}]
+
+Search over all players, champions, and teams by partial text matches.
+
++ Parameters
+    + query (required, string) ... the search query
+    + type  (optional, string) ... type to restrict search ("champion", "player", "team")
+
+### GET [GET]
++ Response 200 (application/json)
+
+        "teams": [
+            {
+                "name": "Order of the Iron Potato",
+                "id": "TEAM-222e7b80-49d9-11e4-806c-782bcb4d0bb2",
+                "tag": "OPot",
+                "status": "RANKED",
+                "win_percentage": 0.5,
+                "total_games": 2,
+                "most_recent_member_timestamp": 1413137738000,
+                "players": [
+                    23509228,
+                    72680640
+                ]
+            }
+        ],

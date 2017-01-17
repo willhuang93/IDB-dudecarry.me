@@ -1,0 +1,338 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module models</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/ethan/cs373-idb/models.py">/home/ethan/cs373-idb/models.py</a></font></td></tr></table>
+    <p><tt>models.py</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial">sqlalchemy.ext.declarative.api.Base(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="models.html#Champion">Champion</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Summoner">Summoner</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Team">Team</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#summ2champ_asc">summ2champ_asc</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#summ2team_asc">summ2team_asc</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Champion">class <strong>Champion</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Champions&nbsp;are&nbsp;the&nbsp;characters&nbsp;that&nbsp;Summoners&nbsp;can&nbsp;play&nbsp;in&nbsp;this&nbsp;game.&nbsp;Each&nbsp;<a href="#Champion">Champion</a>&nbsp;has&nbsp;unique&nbsp;abilities&nbsp;and&nbsp;personalized&nbsp;base&nbsp;stats&nbsp;which&nbsp;change&nbsp;with&nbsp;level.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Champion">Champion</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Champion-__init__"><strong>__init__</strong></a>(self, id, name, title, hp, mp, movespeed, spellblock, portrait_url)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>hp</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>movespeed</strong></dt>
+</dl>
+<dl><dt><strong>mp</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>portrait_url</strong></dt>
+</dl>
+<dl><dt><strong>spellblock</strong></dt>
+</dl>
+<dl><dt><strong>summoners</strong></dt>
+</dl>
+<dl><dt><strong>title</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f2f715d1c50; Champion&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('champion', MetaData(bind=None), Column('i...t_url', String(), table=&lt;champion&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'champion'</dl>
+
+<hr>
+Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Summoner">class <strong>Summoner</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;<a href="#Summoner">Summoner</a>&nbsp;is&nbsp;the&nbsp;equivalent&nbsp;of&nbsp;a&nbsp;player&nbsp;in&nbsp;League&nbsp;of&nbsp;Legends,&nbsp;each&nbsp;<a href="#Summoner">Summoner</a>&nbsp;has&nbsp;a&nbsp;pool&nbsp;of&nbsp;champions&nbsp;he&nbsp;or&nbsp;she&nbsp;much&nbsp;unlock&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;player<br>
+A&nbsp;<a href="#Summoner">Summoner</a>&nbsp;can&nbsp;play&nbsp;Ranked&nbsp;Matches&nbsp;in&nbsp;order&nbsp;to&nbsp;increase&nbsp;his&nbsp;Rank,&nbsp;declared&nbsp;as&nbsp;(tier,&nbsp;division,&nbsp;lp).&nbsp;In&nbsp;order&nbsp;to&nbsp;be&nbsp;promoted&nbsp;in&nbsp;division,&nbsp;and&nbsp;eventually&nbsp;tier,<br>
+he&nbsp;or&nbsp;she&nbsp;must&nbsp;earn&nbsp;League&nbsp;Points,&nbsp;or&nbsp;LP,&nbsp;by&nbsp;winning&nbsp;Matches.<br>
+Thus,&nbsp;win&nbsp;rate&nbsp;is&nbsp;important.<br>
+A&nbsp;<a href="#Summoner">Summoner</a>&nbsp;can&nbsp;also&nbsp;join&nbsp;social&nbsp;circles&nbsp;called&nbsp;Teams,&nbsp;where&nbsp;teams&nbsp;have&nbsp;definitive&nbsp;rosters&nbsp;that&nbsp;can&nbsp;compete&nbsp;in&nbsp;Ranked&nbsp;matches&nbsp;as&nbsp;well.<br>
+A&nbsp;<a href="#Summoner">Summoner</a>&nbsp;can&nbsp;earn&nbsp;Mastery&nbsp;Points&nbsp;with&nbsp;any&nbsp;corresponding&nbsp;unlocked&nbsp;<a href="#Champion">Champion</a>,&nbsp;where&nbsp;mastery&nbsp;points&nbsp;describes&nbsp;the&nbsp;relative&nbsp;skill&nbsp;the&nbsp;summoner&nbsp;has&nbsp;with&nbsp;the&nbsp;champion<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Summoner">Summoner</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Summoner-__init__"><strong>__init__</strong></a>(self, s_id, name, tier, division, lp, win_per, total_games)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>champions</strong></dt>
+</dl>
+<dl><dt><strong>division</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>lp</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>rank</strong></dt>
+</dl>
+<dl><dt><strong>teams</strong></dt>
+</dl>
+<dl><dt><strong>tier</strong></dt>
+</dl>
+<dl><dt><strong>total_games</strong></dt>
+</dl>
+<dl><dt><strong>win_percentage</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f2f7159bb50; Summoner&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('summoner', MetaData(bind=None), Column('i...entage', Float(), table=&lt;summoner&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'summoner'</dl>
+
+<hr>
+Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Team">class <strong>Team</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Teams&nbsp;are&nbsp;composed&nbsp;of&nbsp;Summoners,&nbsp;with&nbsp;the&nbsp;minimum&nbsp;of&nbsp;1&nbsp;<a href="#Summoner">Summoner</a>&nbsp;per&nbsp;team.&nbsp;Each&nbsp;team&nbsp;name&nbsp;is&nbsp;unique.&nbsp;Each&nbsp;<a href="#Team">Team</a>&nbsp;can&nbsp;play&nbsp;in&nbsp;a&nbsp;competitive&nbsp;setting&nbsp;in&nbsp;ranked&nbsp;matches<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Team">Team</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Team-__init__"><strong>__init__</strong></a>(self, id, tag, status, win_p, total_games, most_recent_member_timestamp)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>most_recent_member_timestamp</strong></dt>
+</dl>
+<dl><dt><strong>status</strong></dt>
+</dl>
+<dl><dt><strong>summoners</strong></dt>
+</dl>
+<dl><dt><strong>tag</strong></dt>
+</dl>
+<dl><dt><strong>total_games</strong></dt>
+</dl>
+<dl><dt><strong>win_percentage</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f2f715d1350; Team&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('team', MetaData(bind=None), Column('id', ...r_timestamp', Date(), table=&lt;team&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'team'</dl>
+
+<hr>
+Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="summ2champ_asc">class <strong>summ2champ_asc</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Maps&nbsp;the&nbsp;relationship&nbsp;between&nbsp;Summoners&nbsp;and&nbsp;Champions<br>
+A&nbsp;<a href="#Summoner">Summoner</a>&nbsp;can&nbsp;have&nbsp;multiple&nbsp;Champions<br>
+A&nbsp;<a href="#Champion">Champion</a>&nbsp;can&nbsp;be&nbsp;unlocked&nbsp;by&nbsp;multiple&nbsp;Summoners<br>
+Each&nbsp;<a href="#Summoner">Summoner</a>&nbsp;has&nbsp;respective&nbsp;Mastery&nbsp;Points&nbsp;with&nbsp;a&nbsp;corresponding&nbsp;<a href="#Champion">Champion</a><br>
+This&nbsp;many-to-many&nbsp;relationship&nbsp;is&nbsp;represented&nbsp;thru&nbsp;an&nbsp;association&nbsp;table<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#summ2champ_asc">summ2champ_asc</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="summ2champ_asc-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>champ_id</strong></dt>
+</dl>
+<dl><dt><strong>mastery_score</strong></dt>
+</dl>
+<dl><dt><strong>summ_id</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f2f7156c650; summ2champ_asc&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('summ2champ_asc', MetaData(bind=None), Col... Integer(), table=&lt;summ2champ_asc&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'summ2champ_asc'</dl>
+
+<hr>
+Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="summ2team_asc">class <strong>summ2team_asc</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Maps&nbsp;the&nbsp;relationship&nbsp;between&nbsp;Summoners&nbsp;and&nbsp;Teams<br>
+A&nbsp;<a href="#Summoner">Summoner</a>&nbsp;can&nbsp;be&nbsp;in&nbsp;multiple&nbsp;teams<br>
+A&nbsp;<a href="#Team">Team</a>&nbsp;can&nbsp;have&nbsp;multiple&nbsp;summoners<br>
+This&nbsp;many-to-many&nbsp;relationship&nbsp;is&nbsp;represented&nbsp;thru&nbsp;an&nbsp;association&nbsp;table<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#summ2team_asc">summ2team_asc</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="summ2team_asc-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>summ_id</strong></dt>
+</dl>
+<dl><dt><strong>team_id</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f2f7156c110; summ2team_asc&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('summ2team_asc', MetaData(bind=None), Colu..., primary_key=True, nullable=False), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'summ2team_asc'</dl>
+
+<hr>
+Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>func</strong> = &lt;sqlalchemy.sql.functions._FunctionGenerator object&gt;<br>
+<strong>modifier</strong> = &lt;sqlalchemy.sql.functions._FunctionGenerator object&gt;</td></tr></table>
+</body></html>
